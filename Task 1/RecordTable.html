@@ -58,7 +58,7 @@
                     <td>${records.id}</td>
                     <td>${records.date}</td>
                     <td>${records.amount}</td>
-                    <td><input type="checkbox" id="checkbox" ${records.Paid? 'checked' : ''} disabled></td>
+                    <td><input type="checkbox" id="checkbox" ${records.Paid? 'checked' : 'disabled'} ></td>
                 `;
                 tableBody.append(row);
             })
