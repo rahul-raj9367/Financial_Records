@@ -1,0 +1,91 @@
+table, th, td {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px;
+    text-align: center !important;
+    background-color: #ffffff;
+}
+table{
+    margin-top: 90px !important;
+}
+table tr {
+    border: 2px solid rgba(69, 68, 68, 0.175);
+}
+.table th {
+    height: 30px;
+}
+.table td{
+    width: 100px;
+    height: 20px;
+}
+.paginationContainer {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+body{
+    background-color: #d7d3d3a5 !important;
+}
+#fnn{
+    text-align: left !important;
+    padding-left: 40px;
+}
+#fn {
+    text-align: right !important;   
+}
+.paginationContainer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #fff;
+}
+.box table & .paginationContainer{
+    box-sizing: border-box;
+    box-shadow: 1px 1px 3px 3px #d1cfcf;
+}
+#filter{
+    margin-right: 15px;
+}
+table button{
+    border: none !important;
+    background-color: #fff;
+    cursor: pointer;
+}
+.paginationContainer #prev{
+    margin-left: 152px !important;
+    border: none !important;
+    background-color: #fff;
+    cursor: pointer;
+}
+.paginationContainer  #next{
+    margin-left: 10px;
+    border: none !important;
+    background-color: #fff;
+    cursor: pointer;
+}
+.ppppp{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    background-color: #fff;
+}
+.llll{
+    margin-left: 890px !important;
+}
+input[type="checkbox"] {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+input[type="checkbox"]::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #fff; 
+    border: 1px solid #ccc;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+input[type="checkbox"]:checked::before {
+    background-color: #000000;
+}
