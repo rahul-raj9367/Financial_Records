@@ -1,4 +1,5 @@
 table, th, td {
+    /* border-style:none !important; */
     border-collapse: collapse;
 }
 th, td {
@@ -6,9 +7,11 @@ th, td {
     text-align: center !important;
     background-color: #ffffff;
 }
-table{
-    margin-top: 90px !important;
-}
+/* .table{
+    max-height: 400px !important;
+    overflow-y: scroll !important;
+} */
+
 table tr {
     border: 2px solid rgba(69, 68, 68, 0.175);
 }
@@ -19,10 +22,13 @@ table tr {
     width: 100px;
     height: 20px;
 }
-.paginationContainer {
+/* .paginationContainer {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
-}
+} */
+/* .paginationContainer{
+    margin-top: 20px !important;
+} */
 body{
     background-color: #d7d3d3a5 !important;
 }
@@ -33,14 +39,18 @@ body{
 #fn {
     text-align: right !important;   
 }
-.paginationContainer {
+/* .paginationContainer {
+    /* box-shadow: 1px 1px 3px 3px #d1cfcf; 
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #fff;
-}
+} */
 .box table & .paginationContainer{
     box-sizing: border-box;
     box-shadow: 1px 1px 3px 3px #d1cfcf;
+}
+.box{
+    margin:  0 !important;
 }
 #filter{
     margin-right: 15px;
@@ -50,7 +60,7 @@ table button{
     background-color: #fff;
     cursor: pointer;
 }
-.paginationContainer #prev{
+/* .paginationContainer #prev{
     margin-left: 152px !important;
     border: none !important;
     background-color: #fff;
@@ -61,7 +71,7 @@ table button{
     border: none !important;
     background-color: #fff;
     cursor: pointer;
-}
+} */
 .ppppp{
     display: flex;
     align-items: center;
@@ -81,11 +91,22 @@ input[type="checkbox"]::before {
     display: inline-block;
     width: 16px;
     height: 16px;
-    background-color: #fff; 
-    border: 1px solid #ccc;
+    background-color: #fff; /* Set to white to hide the default checkbox */
+    border: 2px solid #5c5c5cc2;
     margin-right: 5px;
     vertical-align: middle;
   }
 input[type="checkbox"]:checked::before {
     background-color: #000000;
+    /* Change to desired color for checked state */ 
+}
+/* #table2 {
+    width: 80%;
+    margin-top: 90px !important;
+    max-height: 400px ;
+    overflow-y: scroll ;
+} */
+/* Hide the pagination initially */
+.pagination {
+    display: none;
 }
