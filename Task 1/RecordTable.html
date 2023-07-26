@@ -62,7 +62,7 @@
             const day = today.getDate();
 
             // Format the date as desired (e.g., YYYY-MM-DD)
-            const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+            const formattedDate = `${day.toString().padStart(2, '0')}-${month.toString().padStart(2, '0')}-${year}`;
 
             for(let i=1;i<=numberrecords;i++){
                 records.push({
@@ -84,6 +84,7 @@
         
             slicedRecords.forEach(records=>{
                 const tablerow=document.createElement('tr')
+                // tablerow.id=`${records.id}`
                 tablerow.innerHTML=`
                     <td>${records.id}</td>
                     <td>${records.date}</td>
@@ -92,10 +93,10 @@
                 `;
                 tableBody.append(tablerow);
             })
-            
-            page++
+             page++
             //rahul()
         }
+        
 
         loadRecords();
         // const pageDisplay=document.createElement('p')
@@ -126,38 +127,36 @@
         // const pagenum=Math.ceil(records.length/recordperPage);//10 pages
         // generatePaginationLinks(pagenum)
 
-    
+        
         
 
         // Function to check if the user has scrolled to the bottom
-    function isAtBottom() {
-      return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
-    }
-    console.log(window.innerHeight);
-    console.log(window.scrollY)
-    console.log(document.body.offsetHeight)
-    // Event listener for scrolling
-    window.addEventListener('scroll', () => {
-      if (isAtBottom()){
-        loadRecords();
-      }
-    });
+        function isAtBottom(){
+            return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
+        }
+        
+        // Event listener for scrolling
+        window.addEventListener('scroll',()=>{
+            if (isAtBottom()){
+                loadRecords();
+            }
+        });
 
-    // Show the pagination links when there is more data to load
-    function showPagination() {
-      const pagenum = Math.ceil(records.length / recordperPage);//10
-      if (page <= pagenum) {
-        const paginationContainer = document.querySelector('#paginationContainer');
-        paginationContainer.style.display = 'block';
-      } else {
-        loadMoreBtn.textContent = 'All records loaded';
-        loadMoreBtn.removeEventListener('click', loadRecords);
-      }
-    }
+        // Show the pagination links when there is more data to load
+        function showPagination(){
+        const pagenum = Math.ceil(records.length / recordperPage);//10
+            if (page <= pagenum){
+                const paginationContainer=document.querySelector('#paginationContainer');
+                paginationContainer.style.display='block';
+            }else{
+                loadMoreBtn.textContent ='All records loaded';
+                loadMoreBtn.removeEventListener('click',loadRecords);
+            }
+        }
 
-    // Event listener for the Load More button
-    loadMoreBtn.addEventListener('click', loadRecords);
-    loadMoreBtn.addEventListener('click', showPagination);
+        // Event listener for the Load More button
+        loadMoreBtn.addEventListener('click',loadRecords);
+        loadMoreBtn.addEventListener('click',showPagination);
 
         // function goToPreviousPage(){
         //     if(currentPage>1){
