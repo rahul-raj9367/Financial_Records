@@ -145,8 +145,8 @@
 
     // Show the pagination links when there is more data to load
     function showPagination() {
-      const totalChunks = Math.ceil(records.length / recordperPage);//10
-      if (page <= totalChunks) {
+      const pagenum = Math.ceil(records.length / recordperPage);//10
+      if (page <= pagenum) {
         const paginationContainer = document.querySelector('#paginationContainer');
         paginationContainer.style.display = 'block';
       } else {
