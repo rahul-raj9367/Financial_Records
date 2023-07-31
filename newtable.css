@@ -1,0 +1,90 @@
+body{
+    background-color: #d7d3d3a5 !important;
+    margin-top: 30px !important;
+}
+table {
+    border-collapse: collapse;
+    width: 80%;
+}
+#fnn{
+    text-align: left !important;    
+    padding-left: 40px;
+}
+#fn {
+    text-align: right !important;   
+}
+th,td {
+    padding: 8px;
+    text-align: center !important;
+    background-color: #ffffff;
+}
+td{
+    width: 100px;
+    height: 20px;
+}
+table tr{
+    border: 2px solid rgba(69, 68, 68, 0.175);
+}
+#filter{
+    margin-right: 15px;
+}
+.table-container{
+    max-height: 600px;
+    overflow-y: scroll !important;
+}
+#recordsTable{
+    margin-top: 30px !important;
+}
+table button{
+    border: none !important;
+    background-color: #fff;
+    cursor: pointer;
+}
+.load-message {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+}
+input[type="checkbox"] {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+input[type="checkbox"]::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 2px solid #5c5c5cc2;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+input[type="checkbox"]:checked::before {
+    background-color: #000000;
+}
+.table-container tr{
+    border: 2px solid rgba(69, 68, 68, 0.175);
+}
+#loadMessage{
+    font-size: larger;
+    font-weight: bold;
+    position: relative;
+    animation-name: example;
+    animation-duration: 1s;
+}
+@keyframes example {
+    0%   {color: rgb(0, 0, 0);}
+    25%  {color: rgba(213, 213, 213, 0.707);}
+    50%  {color: rgb(0, 0, 0);}
+    100% {color: rgba(213, 213, 213, 0.707);}
+}
+@media(min-width:600px){
+    .table-container {
+        margin-top: 500px !important;
+    }
+    .table-container{
+        max-height: 860px;
+        overflow-y: scroll !important;
+    }
+}

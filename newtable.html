@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Financial Records</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="newtable.css">
+</head>
+<body>
+  <center>
+    <div class="table-container" id="tableContainer">
+      <table id="recordsTable"  width="80%" > 
+        <thead>
+          <tr id="trr">
+            <th colspan="2" id="fnn">Financial Records Table</th>
+            <th id="fn" colspan="2"><button id="#btn15"><span class="material-symbols-outlined" id="filter">filter_list</span></button><button><span class="material-symbols-outlined">more_vert</span></button></th>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Paid</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </center>
+  <center>
+    <div class="load-message" id="loadMessage">LOADING...</div>
+  </center>
+
+  <script>
+    const recordsPerPage=100;
+    let currentPage=0;
+    let loading=false;
+    const records=generateSampleRecords(1000);
+
+    // Function to generate sample financial records (1000 records)
+    function generateSampleRecords(numRecords){
+      const records=[];
+      const today=new Date();
+      const year=today.getFullYear();
+      const month=today.getMonth() + 1;
+      const day=today.getDate();  
+      const formattedDate =`${day.toString().padStart(2, '0')}-${month.toString().padStart(2, '0')}-${year}`;
+
+      for (let i=1;i<=numRecords;i++){
+        records.push({
+          id: i,
+          date: formattedDate,
+          amount:Math.floor(Math.random()*10000)+1,
+          Paid: Math.random() < 0.5,
+        });
+      }
+      return records;
+    }
+    // Function to render records for the current page
+    function renderRecords(){
+      const startIndex=currentPage*recordsPerPage;
+      const endIndex=(currentPage+1)*recordsPerPage;
+      const currentRecords=records.slice(startIndex,endIndex);
+
+      const tableBody=document.querySelector('#recordsTable tbody');
+      tableBody.innerHTML = '';
+
+      currentRecords.forEach(record => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${record.id}</td>
+          <td>${record.date}</td>
+          <td>${record.amount}</td>
+          <td><input type="checkbox" id="checkbox" ${record.Paid? 'checked' : 'disabled'} ></td>
+        `;
+        tableBody.appendChild(row);
+      });
+      loading=false;
+      document.getElementById('loadMessage').style.display='none';
+    }
+
+    // Function to handle table scrolling
+    function handleTableScroll(){
+      console.log("Lodaing 1: ",loading)
+      if(loading) return;
+     
+      const tableContainer = document.getElementById('tableContainer');
+      const scrollOffset = tableContainer.scrollTop;
+      const visibleHeight = tableContainer.clientHeight;
+      const totalHeight = tableContainer.scrollHeight;
+
+      // console.log("Scroll Offset:", scrollOffset);
+      // console.log("Visible Height:", visibleHeight);
+      // console.log("Total Height:", totalHeight);
+
+
+      // console.log("Greater",(scrollOffset+visibleHeight)>=totalHeight)
+
+      if (scrollOffset===0){
+        // Scrolled to the top, load previous page
+        if (currentPage>0){
+          loading=true;
+          document.getElementById('loadMessage').style.display='block';
+          currentPage--;
+          renderRecords();
+        }
+      } else if((scrollOffset+visibleHeight)>=totalHeight){
+        // Scrolled to the bottom, load next page
+        const nextPage=currentPage+1;
+        if(nextPage*recordsPerPage<records.length){
+          loading=true;
+          document.getElementById('loadMessage').style.display='block';
+          currentPage++;
+          setTimeout(renderRecords,1000)
+          setTimeout(isTop,1000)
+        }
+      }
+      // console.log("Lodaing 2: ",loading)
+      // console.log(currentPage)
+      // console.log("LOADING",loading)
+    }
+    function isTop(){
+        const tableContainer=document.getElementById('tableContainer')
+        tableContainer.scroll({
+            top: 7,
+            left: 0,
+            behavior: 'smooth'
+        })
+    }
+    // Attach the scrolling event handler to the table container
+    document.getElementById('tableContainer').addEventListener('scroll', handleTableScroll);
+    
+    renderRecords();
+        
+  </script>
+</body>
+</html>
