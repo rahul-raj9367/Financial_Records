@@ -1,85 +1,49 @@
-table, th, td {
-    /* border-style:none !important; */
-    border-collapse: collapse;
-}
-th, td {
-    padding: 8px;
-    text-align: center !important;
-    background-color: #ffffff;
-}
-/* .table{
-    max-height: 400px !important;
-    overflow-y: scroll !important;
-} */
-
-table tr {
-    border: 2px solid rgba(69, 68, 68, 0.175);
-}
-.table th {
-    height: 30px;
-}
-.table td{
-    width: 100px;
-    height: 20px;
-}
-/* .paginationContainer {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-} */
-/* .paginationContainer{
-    margin-top: 20px !important;
-} */
 body{
     background-color: #d7d3d3a5 !important;
+    margin-top: 30px !important;
+}
+table {
+    border-collapse: collapse;
+    width: 80%;
 }
 #fnn{
-    text-align: left !important;
+    text-align: left !important;    
     padding-left: 40px;
 }
 #fn {
     text-align: right !important;   
 }
-/* .paginationContainer {
-    /* box-shadow: 1px 1px 3px 3px #d1cfcf; 
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #fff;
-} */
-.box table & .paginationContainer{
-    box-sizing: border-box;
-    box-shadow: 1px 1px 3px 3px #d1cfcf;
+th,td {
+    padding: 8px;
+    text-align: center !important;
+    background-color: #ffffff;
 }
-.box{
-    margin:  0 !important;
+td{
+    width: 100px;
+    height: 20px;
+}
+table tr{
+    border: 2px solid rgba(69, 68, 68, 0.175);
 }
 #filter{
     margin-right: 15px;
+}
+.table-container{
+    max-height: 600px;
+    overflow-y: scroll !important;
+}
+#recordsTable{
+    margin-top: 30px !important;
 }
 table button{
     border: none !important;
     background-color: #fff;
     cursor: pointer;
 }
-/* .paginationContainer #prev{
-    margin-left: 152px !important;
-    border: none !important;
-    background-color: #fff;
-    cursor: pointer;
-}
-.paginationContainer  #next{
-    margin-left: 10px;
-    border: none !important;
-    background-color: #fff;
-    cursor: pointer;
-} */
-.ppppp{
-    display: flex;
-    align-items: center;
-    width: 80%;
-    background-color: #fff;
-}
-.llll{
-    margin-left: 890px !important;
+.load-message {
+    text-align: center;
+    padding: 20px;
+    color: #888;
 }
 input[type="checkbox"] {
     background-color: #f0f0f0;
@@ -91,22 +55,36 @@ input[type="checkbox"]::before {
     display: inline-block;
     width: 16px;
     height: 16px;
-    background-color: #fff; /* Set to white to hide the default checkbox */
+    background-color: #fff;
     border: 2px solid #5c5c5cc2;
     margin-right: 5px;
     vertical-align: middle;
-  }
+}
 input[type="checkbox"]:checked::before {
     background-color: #000000;
-    /* Change to desired color for checked state */ 
 }
-/* #table2 {
-    width: 80%;
-    margin-top: 90px !important;
-    max-height: 400px ;
-    overflow-y: scroll ;
-} */
-/* Hide the pagination initially */
-.pagination {
-    display: none;
+.table-container tr{
+    border: 2px solid rgba(69, 68, 68, 0.175);
+}
+#loadMessage{
+    font-size: larger;
+    font-weight: bold;
+    position: relative;
+    animation-name: example;
+    animation-duration: 1s;
+}
+@keyframes example {
+    0%   {color: rgb(0, 0, 0);}
+    25%  {color: rgba(213, 213, 213, 0.707);}
+    50%  {color: rgb(0, 0, 0);}
+    100% {color: rgba(213, 213, 213, 0.707);}
+}
+@media(min-width:600px){
+    .table-container {
+        margin-top: 500px !important;
+    }
+    .table-container{
+        max-height: 860px;
+        overflow-y: scroll !important;
+    }
 }
